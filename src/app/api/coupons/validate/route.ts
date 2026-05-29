@@ -20,14 +20,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: "Invalid or expired coupon" }, { status: 404 });
     }
 
-    const couponDoc = coupon as {
-      usedCount: number;
-      usageLimit: number;
-      minOrderAmount: number;
-      discountType: string;
-      discount: number;
-      maxDiscount?: number;
-    };
+    const couponDoc = coupon as unknown as {
+  usedCount: number;
+  usageLimit: number;
+  minOrderAmount: number;
+  discountType: string;
+  discount: number;
+  maxDiscount?: number;
+};
 
     if (couponDoc.usedCount >= couponDoc.usageLimit) {
       return NextResponse.json({ success: false, error: "Coupon usage limit reached" }, { status: 400 });

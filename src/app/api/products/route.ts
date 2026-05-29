@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
       newest: { createdAt: -1 },
       createdAt: { createdAt: -1 },
     };
-    query = query.sort(sortOptions[sort] || { createdAt: -1 });
+    query = query.sort((sortOptions[sort] || { createdAt: -1 }) as any);
 
     const total = await Product.countDocuments(filter);
     const products = await query

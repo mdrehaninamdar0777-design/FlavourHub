@@ -36,7 +36,8 @@ export default function AdminProductsPage() {
 
   const openEdit = (product: Product) => {
     setEditProduct(product);
-    setForm({ title: product.title, description: product.description, category: product.category, price: product.price.toString(), originalPrice: product.originalPrice?.toString() || "", stock: product.stock.toString(), isFeatured: product.isFeatured, isBestSeller: product.isBestSeller, image: product.image, ingredients: product.ingredients?.join(", ") || "" });
+    setForm({ title: product.title, description: product.description, category: product.category, price: product.price.toString(), originalPrice: product.originalPrice?.toString() || "", stock: product.stock.toString(), isFeatured: product.isFeatured ?? false,
+isBestSeller: product.isBestSeller ?? false, image: product.image, ingredients: product.ingredients?.join(", ") || "" });
     setShowModal(true);
   };
 

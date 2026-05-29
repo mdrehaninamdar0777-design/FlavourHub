@@ -82,7 +82,15 @@ export default function AdminDashboardPage() {
               <CartesianGrid strokeDasharray="3 3" stroke="#1E1E24" />
               <XAxis dataKey="month" stroke="#6B6B7A" tick={{ fontSize: 12 }} />
               <YAxis stroke="#6B6B7A" tick={{ fontSize: 12 }} tickFormatter={(v) => `₹${(v/1000).toFixed(0)}k`} />
-              <Tooltip contentStyle={{ background: "#111114", border: "1px solid #1E1E24", borderRadius: "12px", color: "#E8E8F0" }} formatter={(v: number) => [formatCurrency(v), "Revenue"]} />
+              <Tooltip
+  contentStyle={{
+    background: "#111114",
+    border: "1px solid #1E1E24",
+    borderRadius: "12px",
+    color: "#E8E8F0"
+  }}
+  formatter={(v) => [formatCurrency(Number(v ?? 0)), "Revenue"]}
+/>
               <Area type="monotone" dataKey="revenue" stroke="#FF6B35" strokeWidth={2} fill="url(#colorRevenue)" />
             </AreaChart>
           </ResponsiveContainer>

@@ -20,7 +20,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     if (!order) {
       return NextResponse.json({ success: false, error: "Order not found" }, { status: 404 });
     }
-    const orderObj = order as { userId: { toString(): string } };
+    const orderObj = order as unknown as { userId: { toString(): string } };
     if (user!.role !== "admin" && orderObj.userId.toString() !== user!._id) {
       return NextResponse.json({ success: false, error: "Forbidden" }, { status: 403 });
     }

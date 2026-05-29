@@ -30,7 +30,7 @@ export async function getAuthUser(request: NextRequest) {
   return {
     uid: decoded.uid,
     email: decoded.email || "",
-    role: (user as { role: string }).role as "customer" | "admin",
+   role: (user as unknown as { role: string }).role as "customer" | "admin",
     _id: ((user as { _id: unknown })._id as { toString(): string }).toString(),
   };
 }
