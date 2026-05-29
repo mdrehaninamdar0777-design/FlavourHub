@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================
+   FlavorHub Global Styles
+   ========================================== */
+
+:root {
+  --color-orange: #FF6B35;
+  --color-amber: #FFB347;
+  --color-dark: #0A0A0B;
+  --color-card: #111114;
+  --color-border: #1E1E24;
+  --color-muted: #6B6B7A;
+  --color-text: #E8E8F0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E1E24;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B35;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 107, 53, 0.3);
+  color: #E8E8F0;
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-brand-card border border-brand-border rounded-2xl backdrop-blur-sm;
+    background: linear-gradient(135deg, rgba(17, 17, 20, 0.95), rgba(17, 17, 20, 0.8));
+  }
+
+  /* Orange gradient button */
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-orange to-brand-amber text-white font-heading font-semibold
+           px-6 py-3 rounded-xl transition-all duration-300
+           hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105 active:scale-95;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply border-2 border-brand-orange text-brand-orange font-heading font-semibold
+           px-6 py-3 rounded-xl transition-all duration-300
+           hover:bg-brand-orange hover:text-white hover:shadow-lg hover:shadow-orange-500/30;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-orange to-brand-amber bg-clip-text text-transparent;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply font-heading font-bold text-3xl md:text-4xl text-brand-text;
+  }
+
+  /* Input style */
+  .input-dark {
+    @apply bg-brand-card border border-brand-border rounded-xl px-4 py-3
+           text-brand-text placeholder-brand-muted
+           focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange
+           transition-colors duration-200;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply bg-brand-border rounded animate-pulse;
+    background: linear-gradient(90deg, #1E1E24 25%, #2a2a32 50%, #1E1E24 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* Framer motion page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Food card hover glow */
+.food-card:hover {
+  box-shadow: 0 0 40px rgba(255, 107, 53, 0.15);
+}
+
+/* Hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(10, 10, 11, 0.9) 0%, rgba(26, 10, 0, 0.7) 50%, rgba(10, 10, 11, 0.85) 100%);
+}
+
+/* Orange glow effect */
+.orange-glow {
+  box-shadow: 0 0 60px rgba(255, 107, 53, 0.3);
+}
+
+/* Table row hover */
+tr:hover td {
+  background-color: rgba(255, 107, 53, 0.04);
+}
